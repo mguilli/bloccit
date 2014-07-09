@@ -15,6 +15,9 @@ group :development do
   gem 'sqlite3'
 end
 
+# Use Figaro for sensitive data handling
+gem 'figaro'
+
 # Use Devide for user authentication
 gem 'devise'
 
