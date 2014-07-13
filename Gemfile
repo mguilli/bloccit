@@ -21,6 +21,9 @@ gem 'figaro'
 # Use Devide for user authentication
 gem 'devise'
 
+# Use Pundit for authorization rules
+gem 'pundit'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 
