@@ -15,6 +15,9 @@ group :development do
   gem 'sqlite3'
 end
 
+# Use Redcarpet to add Markdown functionality to posts
+gem 'redcarpet'
+
 # Use Figaro for sensitive data handling
 gem 'figaro'
 
