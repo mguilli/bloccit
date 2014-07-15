@@ -3,4 +3,4 @@
 Made with my mentor at [Bloc](http://bloc.io)
 
 ###Setup
-Environmental variables are defined in config/application.yml
+Environmental variables are defined in config/application.yml and formatted as in config/application.example.yml.

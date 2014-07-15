@@ -18,6 +18,13 @@ end
 # Use Redcarpet to add Markdown functionality to posts
 gem 'redcarpet'
 
+# Image uploading and manipulation
+gem 'carrierwave'
+gem 'mini_magick'
+
+# Use fog to interact with Amazon S3 to store image files
+gem 'fog'
+
 # Use Figaro for sensitive data handling
 gem 'figaro'
 
