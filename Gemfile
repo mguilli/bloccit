@@ -18,6 +18,9 @@ end
 # Use Redcarpet to add Markdown functionality to posts
 gem 'redcarpet'
 
+# Use for pagination
+gem 'will_paginate', '~> 3.0.5'
+
 # Image uploading and manipulation
 gem 'carrierwave'
 gem 'mini_magick'
