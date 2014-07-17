@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
   def create
-    @topic = Topic.find(params[:topic_id])
-    @post = Post.find(params[:id])
+    @topic = Topic.find(params[:topic_id])    
     @comment = current_user.comments.build(comment_params)
+    @post = Post.find(params[:post_id])
     @comment.post = @post
     authorize @comment
 

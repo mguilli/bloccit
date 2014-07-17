@@ -1,2 +1,8 @@
-<h1>Comments#create</h1>
-<p>Find me in app/views/comments/create.html.erb</p>
+<%= comment.body %>
+<p>
+  <small>
+    submitted <%= time_ago_in_words(comment.created_at) %> ago by <%= comment.user.name %>
+  </small>
+</p>
+
+

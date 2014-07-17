@@ -3,7 +3,9 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @topic = @post.topic #Should retrieve the topic associated with the @post instance
-    # @topic = Topic.find(params[:topic_id])
+    @comment = Comment.new
+    @comments = @post.comments
+    authorize @post
   end
 
   def new
