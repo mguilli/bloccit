@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
 
   def show
-    @post = Post.find(params[:id])
-    @topic = @post.topic #Should retrieve the topic associated with the @post instance
+    @topic = Topic.find(params[:topic_id])
+    @post = @topic.posts.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments
     authorize @post
@@ -45,6 +45,21 @@ class PostsController < ApplicationController
     else
       flash[:error] = "There was an error saving the post. Please try again."
       render :edit
+    end
+  end
+
+  def destroy
+    @topic = Topic.find(params[:topic_id])
+    @post = Post.find(params[:id])
+    title = @post.title
+    authorize @post
+
+    if @post.destroy
+      flash[:notice] = "\"#{title}\"was deleted succesfully."
+      redirect_to @topic
+    else
+      flash[:error] = "There was an error deleting the post."
+      render :show
     end
   end
 
