@@ -5,6 +5,7 @@
     <%= will_paginate @posts %>
     <% @posts.each do |post| %>
       <div class="media">
+        <%= render partial: 'votes/voter', locals: {post: post} %>
         <%= image_tag( post.image.thumb.url, class: 'pull-left') if post.image?%> 
         <div class="media-body">
           <h4 class="media-head">
