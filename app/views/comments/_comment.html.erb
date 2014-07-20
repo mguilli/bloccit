@@ -1,11 +1,4 @@
-<!--<%= comment.body %>
-<p>
-  <small>
-    submitted <%= time_ago_in_words(comment.created_at) %> ago by <%= comment.user.name %>
-  </small>
-</p> -->
-
-<div class="media">
+<%= content_tag :div, class: 'media', id: "comment-#{comment.id}" do %>
   <%= link_to '#', class: 'pull-left' do %>
     <%= image_tag(comment.user.avatar.small.url) if comment.user.avatar? %>
   <% end %>
@@ -18,6 +11,6 @@
     </small>
     <p><%= comment.body %></p>
   </div>
-</div> 
+<% end %>
 
 
