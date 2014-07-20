@@ -35,7 +35,9 @@ class Post < ActiveRecord::Base
   private
 
   def create_vote
-    posters_vote = self.votes.new(value: 1, user_id: user_id)
-    posters_vote.save
+    # Create new vote based on values in new post.
+    # posters_vote = self.votes.new(value: 1, user: user)
+    # posters_vote.save
+    user.votes.create(value: 1, post: self)
   end
 end
