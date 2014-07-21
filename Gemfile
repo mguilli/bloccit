@@ -18,6 +18,7 @@ end
 # Use Rspec for testing
 group :test do
   gem 'rspec-rails'
+  gem 'capybara'
 end
 
 # Use Redcarpet to add Markdown functionality to posts
