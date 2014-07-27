@@ -3,24 +3,7 @@
   <div class="col-md-8">
     <p class="lead"><%= @topic.description %></p>
     <%= will_paginate @posts %>
-    <% @posts.each do |post| %>
-      <div class="media">
-        <%= render partial: 'votes/voter', locals: {post: post} %>
-        <%= image_tag( post.image.thumb.url, class: 'pull-left') if post.image?%> 
-        <div class="media-body">
-          <h4 class="media-head">
-            <%= link_to (markdown post.title), [@topic, post] %>
-          </h4>
-        </div>
-        <div class="media-body">
-          <small>
-            <%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %>
-            submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %><br/>
-            <%= post.comments.count %> Comments
-          </small>
-        </div>
-      </div>    
-    <% end %>
+    <%= render @posts %>
     <%= will_paginate @posts %>
   </div>
 
