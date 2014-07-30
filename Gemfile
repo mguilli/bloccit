@@ -21,6 +21,9 @@ group :test do
   gem 'capybara'
 end
 
+# Use New Relic for performance monitoring
+gem 'newrelic_rpm'
+
 # Use Redcarpet to add Markdown functionality to posts
 gem 'redcarpet'
 
