@@ -2,15 +2,11 @@ require 'rails_helper'
 
 describe "Visiting profiles" do
 
-  include TestFactories
-
   before do
-    @user = authenticated_user
+    @user = create(:user)
     @topic = Topic.create(description: "A topic")
-    @post = post_without_user(user: @user, topic: @topic)
-    @comment = Comment.new(user: @user, body: "A Comment")
-    allow(@comment).to receive(:send_favorite_emails)
-    @comment.save
+    @post = create(:post, user: @user, topic: @topic)
+    @comment = create(:comment, user: @user)
   end
 
   describe "not signed in" do
