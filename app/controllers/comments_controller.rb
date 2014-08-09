@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  respond_to :html, :js
+
   def create
     @post = Post.find(params[:post_id])
     @topic = @post.topic
@@ -24,10 +26,12 @@ class CommentsController < ApplicationController
 
     if @comment.destroy
       flash[:notice] = "Comment was deleted successfully."
-      redirect_to [@topic, @post]
     else
       flash[:error] = "There was an error deleting the comment."
-      redirect_to [@topic, @post]
+    end
+
+    respond_with(@comment) do |format|
+      format.html { redirect_to [@post.topic, @post] }
     end
   end
 
