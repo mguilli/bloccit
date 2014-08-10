@@ -3,19 +3,21 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @topic = @post.topic
     @comment = current_user.comments.build(comment_params)
     @comment.post = @post
+    @new_comment = Comment.new
     @comments = @post.comments
     authorize @comment
 
     if @comment.save
       flash[:notice] = "Comment was saved."
-      redirect_to [@topic, @post]
     else
       flash[:error] = "There was an error saving the comment."
-      render 'posts/show'#, locals: { topic: @topic, post: @post, comment: @comment, comments: @comments }
     end    
+
+    respond_with(@comment) do |format|
+      format.html { redirect_to [@post.topic, @post]}
+    end
   end
 
   def destroy    
